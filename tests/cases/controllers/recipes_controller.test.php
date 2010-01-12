@@ -1,5 +1,5 @@
 <?php
-/* Recipes Test cases generated on: 2010-01-12 17:01:23 : 1263312503*/
+/* Recipes Test cases generated on: 2010-01-12 17:01:12 : 1263314352*/
 App::import('Controller', 'Recipes');
 
 class TestRecipesController extends RecipesController {
@@ -11,7 +11,7 @@ class TestRecipesController extends RecipesController {
 }
 
 class RecipesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.recipe', 'app.user', 'app.ingredient', 'app.ingredients_recipe');
+	var $fixtures = array('app.recipe', 'app.user', 'app.category', 'app.ingredient', 'app.ingredients_recipe');
 
 	function startTest() {
 		$this->Recipes =& new TestRecipesController();

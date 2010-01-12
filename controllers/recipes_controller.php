@@ -27,8 +27,9 @@ class RecipesController extends AppController {
 			}
 		}
 		$users = $this->Recipe->User->find('list');
+		$categories = $this->Recipe->Category->find('list');
 		$ingredients = $this->Recipe->Ingredient->find('list');
-		$this->set(compact('users', 'ingredients'));
+		$this->set(compact('users', 'categories', 'ingredients'));
 	}
 
 	function edit($id = null) {
@@ -48,8 +49,9 @@ class RecipesController extends AppController {
 			$this->data = $this->Recipe->read(null, $id);
 		}
 		$users = $this->Recipe->User->find('list');
+		$categories = $this->Recipe->Category->find('list');
 		$ingredients = $this->Recipe->Ingredient->find('list');
-		$this->set(compact('users', 'ingredients'));
+		$this->set(compact('users', 'categories', 'ingredients'));
 	}
 
 	function delete($id = null) {
