@@ -91,8 +91,7 @@ class M4b4ca157c5244c338016697e0bda76d4 extends CakeMigration {
 				App::import('Core', 'Security');
 			}
 			
-			ClassRegistry::flush();
-			$User = ClassRegistry::init('User');
+			$User = new Model(array('table' => 'users', 'name' => 'User'));
 			$user = array(
                 'User' => array(
                     'name' => 'admin',

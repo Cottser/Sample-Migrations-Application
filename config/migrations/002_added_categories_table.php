@@ -65,8 +65,7 @@ class M4b4cb207543c421e80be745d0bda76d4 extends CakeMigration {
  */
 	function after($direction) {
 		if ($direction === 'up') {
-			ClassRegistry::flush();
-			$Category = ClassRegistry::init('Category');
+			$Category = new Model(array('table' => 'categories', 'name' => 'Category'));
 			$categories = array(
 				array('name' => 'Starters'),
 				array('name' => 'Main Dish'),
