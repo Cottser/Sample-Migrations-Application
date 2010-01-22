@@ -11,11 +11,6 @@
 			<?php echo $this->Html->link($recipe['User']['name'], array('controller' => 'users', 'action' => 'view', $recipe['User']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Category'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($recipe['Category']['name'], array('controller' => 'categories', 'action' => 'view', $recipe['Category']['id'])); ?>
-			&nbsp;
-		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $recipe['Recipe']['name']; ?>
@@ -36,9 +31,15 @@
 			<?php echo $recipe['Recipe']['modified']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Category'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($recipe['Category']['name'], array('controller' => 'categories', 'action' => 'view', $recipe['Category']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
+	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Recipe', true)), array('action' => 'edit', $recipe['Recipe']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Recipe', true)), array('action' => 'delete', $recipe['Recipe']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $recipe['Recipe']['id'])); ?> </li>

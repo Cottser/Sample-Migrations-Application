@@ -21,14 +21,12 @@ if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 	header('HTTP/1.1 404 Not Found');
 	exit('File Not Found');
 }
-
 /**
  * Enter description here...
  */
 if (!class_exists('File')) {
-	require LIBS . 'file.php';
+	uses('file');
 }
-
 /**
  * Enter description here...
  *
@@ -45,7 +43,6 @@ if (!class_exists('File')) {
 		$output = " /* file: $name, ratio: $ratio% */ " . $output;
 		return $output;
 	}
-
 /**
  * Enter description here...
  *
@@ -62,7 +59,7 @@ if (!class_exists('File')) {
 	}
 
 	if (preg_match('|\.\.|', $url) || !preg_match('|^ccss/(.+)$|i', $url, $regs)) {
-		exit('Wrong file name.');
+		die('Wrong file name.');
 	}
 
 	$filename = 'css/' . $regs[1];
@@ -70,7 +67,7 @@ if (!class_exists('File')) {
 	$cachepath = CACHE . 'css' . DS . str_replace(array('/','\\'), '-', $regs[1]);
 
 	if (!file_exists($filepath)) {
-		exit('Wrong file name.');
+		die('Wrong file name.');
 	}
 
 	if (file_exists($cachepath)) {
@@ -91,7 +88,7 @@ if (!class_exists('File')) {
 
 	header("Date: " . date("D, j M Y G:i:s ", $templateModified) . 'GMT');
 	header("Content-Type: text/css");
-	header("Expires: " . gmdate("D, j M Y H:i:s", time() + DAY) . " GMT");
+	header("Expires: " . gmdate("D, d M Y H:i:s", time() + DAY) . " GMT");
 	header("Cache-Control: max-age=86400, must-revalidate"); // HTTP/1.1
 	header("Pragma: cache");        // HTTP/1.0
 	print $output;
