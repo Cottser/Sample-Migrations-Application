@@ -93,9 +93,9 @@ class M4b4ca157c5244c338016697e0bda76d4 extends CakeMigration {
 			
 			$User = $this->generateModel('User');
 			$user = array(
-                'User' => array(
-                    'name' => 'admin',
-                    'password' => Security::hash('unsecurepassword', null, true)));
+				'User' => array(
+					'name' => 'admin',
+					'password' => Security::hash('unsecurepassword', null, true)));
 			$User->save($user);
 		}
 		return true;
